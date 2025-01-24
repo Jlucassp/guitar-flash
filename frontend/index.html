@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Flash Helper</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Guitar Flash Helper</h1>
+        <select id="song-selector">
+            <option value="" disabled selected>Selecione uma música</option>
+        </select>
+        <div id="timeline"></div>
+        <button id="play-alerts">Reproduzir Alertas</button>
+        <audio id="background-audio" controls style="display: none;">
+            Seu navegador não suporta áudio.
+        </audio>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
