@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // Fazer uma requisição ao servidor para obter as músicas
-        const response = await fetch('http://localhost:3000/songs');
+        const response = await fetch('https://guitar-flash-backend.onrender.com/songs');
         const songs = await response.json();
 
         // Preencher o seletor de músicas com os dados do backend
