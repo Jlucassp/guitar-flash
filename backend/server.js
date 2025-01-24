@@ -6,7 +6,9 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://jlucassp.github.io'
+}));
 
 // Caminho para o arquivo music.json
 const musicFilePath = path.join(__dirname, 'data', 'music.json');
