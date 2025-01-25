@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const toggleAudioButton = document.getElementById('toggle-audio');
     let progressInterval = null;
     let progressBar = null;
+    let isAudioMuted = false; // Indica se o áudio está desativado
     let isAlertsMode = false; // Indica se o botão "Reproduzir Alertas" foi usado
     let activeTimings = []; // Armazena os timings da música atual
     let triggeredTimings = new Set(); // Armazena os timings já ativados
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // Fazer uma requisição ao servidor para obter as músicas
+        // const response = await fetch('http://localhost:3000/songs')
         const response = await fetch('https://guitar-flash-backend.onrender.com/songs');
         const songs = await response.json();
 
@@ -56,6 +58,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Adicionar evento para o botão "Reproduzir Alertas"
         document.getElementById('play-alerts').addEventListener('click', () => {
+            // Reproduzir um som vazio para inicializar o áudio em iOS
+            alertSound.play().then(() => {
+                console.log('Áudio autorizado em dispositivos móveis.');
+            }).catch(error => {
+                console.error('Erro ao inicializar áudio:', error);
+            });
+
             const selectedSongId = songSelector.value;
             if (!selectedSongId) {
                 alert('Selecione uma música primeiro!');
