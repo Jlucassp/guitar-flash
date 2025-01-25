@@ -161,6 +161,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         progressInterval = setInterval(() => updateProgressBar(), 100);
     }
 
+    // Toggle para desativar ou ativar o áudio
+    toggleAudioButton.addEventListener('click', () => {
+        isAudioMuted = !isAudioMuted;
+        backgroundAudio.muted = isAudioMuted;
+
+        // Atualizar texto do botão
+        toggleAudioButton.textContent = isAudioMuted ? 'Ativar Áudio' : 'Desativar Áudio';
+    });
+
     // Função para atualizar a linha do tempo com os momentos dos especiais
     function updateTimeline(timings, totalDuration) {
         timeline.innerHTML = ''; // Limpar a linha do tempo
