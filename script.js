@@ -45,6 +45,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
 
+        // Toggle para desativar ou ativar o áudio
+        toggleAudioButton.addEventListener('click', () => {
+            isAudioMuted = !isAudioMuted;
+            backgroundAudio.muted = isAudioMuted;
+
+            // Atualizar texto do botão
+            toggleAudioButton.textContent = isAudioMuted ? 'Ativar Áudio' : 'Desativar Áudio';
+        });
+
         // Adicionar evento para o botão "Reproduzir Alertas"
         document.getElementById('play-alerts').addEventListener('click', () => {
             const selectedSongId = songSelector.value;
@@ -161,15 +170,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         progressInterval = setInterval(() => updateProgressBar(), 100);
     }
-
-    // Toggle para desativar ou ativar o áudio
-    toggleAudioButton.addEventListener('click', () => {
-        isAudioMuted = !isAudioMuted;
-        backgroundAudio.muted = isAudioMuted;
-
-        // Atualizar texto do botão
-        toggleAudioButton.textContent = isAudioMuted ? 'Ativar Áudio' : 'Desativar Áudio';
-    });
 
     // Função para atualizar a linha do tempo com os momentos dos especiais
     function updateTimeline(timings, totalDuration) {
