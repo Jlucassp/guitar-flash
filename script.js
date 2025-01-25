@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const timeline = document.getElementById('timeline');
     const alertSound = new Audio('sounds/alert.mp3');
     const backgroundAudio = document.getElementById('background-audio');
+    const toggleAudioButton = document.getElementById('toggle-audio');
     let progressInterval = null;
     let progressBar = null;
     let isAlertsMode = false; // Indica se o botão "Reproduzir Alertas" foi usado
